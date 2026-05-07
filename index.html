@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio — Caike Ribeiro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #ff6b35;
+            --purple: #a78bfa;
+            --cyan: #22d3ee;
+            --green: #22c55e;
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --border-dark: #1f1f1f;
+            --text-light: #f5f3ee;
+            --text-muted: #6a6a6a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #0a0a0a;
+            background: #f5f3ee;
+            overflow-x: hidden;
+        }
+
+        /* ── NAV ── */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 3rem;
+            background: var(--bg-dark);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-light);
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #9a9a9a;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        /* ── Eu ── */
+        #inicio {
+            min-height: 92vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--bg-dark);
+            padding: 4rem 3rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #inicio::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.12) 0%, transparent 70%);
+            top: -150px;
+            right: -150px;
+            pointer-events: none;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 3rem;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 100px;
+            padding: 6px 18px;
+            font-size: 0.8rem;
+            color: #9a9a9a;
+            margin-bottom: 1.8rem;
+            width: fit-content;
+        }
+
+        .hero-tag-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+            animation: pulse 2s ease infinite;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 800;
+            color: var(--text-light);
+            line-height: 1.0;
+            letter-spacing: -2.5px;
+            margin-bottom: 1.4rem;
+        }
+
+        h1 .accent {
+            color: var(--orange);
+        }
+
+        h1 .accent2 {
+            color: var(--purple);
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 440px;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: #fff;
+            border: none;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            font-family: inherit;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #e85a24;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-light);
+            border: 1px solid #2a2a2a;
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: border-color 0.2s, transform 0.15s;
+            font-family: inherit;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        /* Avatar */
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeUp 0.7s 0.15s ease both;
+        }
+
+        .avatar-wrap {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .avatar-bg {
+            width: 100%;
+            height: 100%;
+            border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--purple) 50%, var(--cyan) 100%);
+            animation: morph 8s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-initials {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+        }
+
+        .avatar-initials img {
+            width: 85%;
+            height: 85%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .avatar-ring {
+            position: absolute;
+            inset: -18px;
+            border-radius: 50%;
+            border: 1.5px dashed #2a2a2a;
+            animation: spin 20s linear infinite;
+        }
+
+        .avatar-dot {
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--orange);
+            top: 12px;
+            right: 32px;
+        }
+
+        /* ── STATS ── */
+        .stats-bar {
+            background: var(--orange);
+            padding: 1.4rem 3rem;
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: #fff;
+        }
+
+        .stat-num {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.72rem;
+            opacity: 0.85;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-top: 0.2rem;
+        }
+
+        /* ── SEÇÃO BASE ── */
+        .section {
+            padding: 5rem 3rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 2.8rem;
+            color: #0a0a0a;
+        }
+
+        /* ── HABILIDADES ── */
+        #skills {
+            background: var(--bg-dark);
+        }
+
+        #skills .section-title {
+            color: var(--text-light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 14px;
+            padding: 1.4rem 1.2rem;
+            text-align: center;
+            transition: border-color 0.25s, transform 0.25s;
+            cursor: default;
+        }
+
+        .skill-card:hover {
+            border-color: var(--skill-color);
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.7rem;
+            display: block;
+        }
+
+        .skill-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 0.6rem;
+        }
+
+        .skill-bar-bg {
+            height: 3px;
+            background: #2a2a2a;
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 100px;
+            background: var(--skill-color);
+            width: 0;
+            transition: width 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ── PROJETOS ── */
+        #projetos {
+            background: #f5f3ee;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #e8e5e0;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-thumb {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.2rem;
+        }
+
+        .project-body {
+            padding: 1.4rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 12px;
+            border-radius: 100px;
+            letter-spacing: 0.3px;
+        }
+
+        .project-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0a0a0a;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .project-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--orange);
+            border: 1px solid #ffe0d5;
+            padding: 5px 14px;
+            border-radius: 100px;
+            transition: background 0.2s;
+        }
+
+        .project-link:hover {
+            background: #fff5f2;
+        }
+
+        /* ── EXPERIÊNCIA ── */
+        #experiencia {
+            background: #fff;
+        }
+
+        .exp-timeline {
+            position: relative;
+            padding-left: 2.5rem;
+            max-width: 700px;
+        }
+
+        .exp-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--orange), var(--purple), var(--cyan));
+        }
+
+        .exp-item {
+            position: relative;
+            padding: 0 0 3rem 2rem;
+        }
+
+        .exp-dot {
+            position: absolute;
+            left: -2.9rem;
+            top: 4px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            border: 2.5px solid #fff;
+            outline: 2.5px solid var(--dot-color, var(--orange));
+            background: var(--dot-color, var(--orange));
+        }
+
+        .exp-period {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-role {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0a0a0a;
+        }
+
+        .exp-company {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .exp-desc {
+            font-size: 0.88rem;
+            color: #4a4a4a;
+            line-height: 1.75;
+        }
+
+        /* ── CONTATO ── */
+        #contato {
+            background: var(--bg-dark);
+        }
+
+        #contato .section-title {
+            color: var(--text-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.85;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 1rem 1.4rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: border-color 0.2s, transform 0.18s;
+        }
+
+        .social-link:hover {
+            border-color: var(--orange);
+            transform: translateX(5px);
+        }
+
+        .social-icon {
+            font-size: 1.3rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 12px;
+            padding: 1rem 1.4rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--orange);
+        }
+
+        .contact-form textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #3a3a3a;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 1.6rem;
+            font-size: 0.8rem;
+            color: #3a3a3a;
+            border-top: 1px solid #111;
+        }
+
+        footer span {
+            color: var(--orange);
+        }
+
+        /* ── ANIMAÇÕES ── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes morph {
+
+            0%,
+            100% {
+                border-radius: 40% 60% 55% 45% / 45% 40% 60% 55%;
+            }
+
+            33% {
+                border-radius: 60% 40% 45% 55% / 55% 60% 40% 45%;
+            }
+
+            66% {
+                border-radius: 50% 50% 60% 40% / 40% 50% 50% 60%;
+            }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ── RESPONSIVO ── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            #inicio {
+                grid-template-columns: 1fr;
+                padding: 3rem 1.5rem;
+                min-height: auto;
+                gap: 2.5rem;
+            }
+
+            #inicio::before {
+                display: none;
+            }
+
+            .hero-left {
+                padding-right: 0;
+            }
+
+            .hero-right {
+                justify-content: flex-start;
+            }
+
+            .stats-bar {
+                gap: 2rem;
+                padding: 1.2rem 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .section {
+                padding: 3.5rem 1.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .avatar-wrap {
+                width: 220px;
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── NAV ── -->
+    <nav>
+        <a href="#inicio" class="nav-logo">dev<span>.</span>portfolio</a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#experiencia">Experiência</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- ── EU ── -->
+    <section id="inicio">
+        <div class="hero-left">
+            <div class="hero-tag">
+                <span class="hero-tag-dot"></span>
+                Disponível para projetos
+            </div>
+            <h1>
+                Olá, sou<br>
+                <span class="accent">Caike</span><br>
+                <span class="accent2">Dev Web</span>
+            </h1>
+            <p class="hero-desc">
+                Sou curioso por natureza — o tipo de pessoa que abre o terminal às 23h só pra testar uma ideia. Estou
+                construindo minha trajetória no TI com foco em backend, aprendendo algo novo todo dia e buscando minha
+                primeira grande oportunidade na área.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projetos" class="btn-primary">Ver projetos →</a>
+                <a href="#" class="btn-outline">Download CV</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="avatar-wrap">
+                <div class="avatar-bg"></div>
+                <div class="avatar-initials"><img src="img/Caike.png" alt=""></div>
+                <div class="avatar-ring">
+                    <div class="avatar-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── STATS ── -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-num">1+</div>
+            <div class="stat-label">Anos de exp.</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Projetos</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">0+</div>
+            <div class="stat-label">Clientes"ainda"</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">%</div>
+            <div class="stat-label">Satisfação</div>
+        </div>
+    </div>
+
+    <!-- ── HABILIDADES ── -->
+    <section id="skills" class="section">
+        <div class="section-label">// habilidades</div>
+        <h2 class="section-title">Stack técnica</h2>
+        <div class="skills-grid">
+            <div class="skill-card" style="--skill-color:#f7df1e">
+                <span class="skill-icon">🟨</span>
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" data-width="50"></div>
+                </div>
+            </div>
+            <div class="skill-card" style="--skill-color:#61dafb">
+                <span class="skill-icon">⚛️</span>
+                <div class="skill-name">React</div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" data-width="2"></div>
+                </div>
+            </div>
+            <div class="skill-card" style="--skill-color:#3178c6">
+                <span class="skill-icon">🔷</span>
+                <div class="skill-name">TypeScript</div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" data-width="7"></div>
+                </div>
+            </div>
+            <div class="skill-card" style="--skill-color:#06b6d4">
+                <span class="skill-icon">🎨</span>
+                <div class="skill-name">CSS / Tailwind</div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" data-width="88"></div>
+                </div>
+            </div>
+            <div class="skill-card" style="--skill-color:#68a063">
+                <span class="skill-icon">🟩</span>
+                <div class="skill-name">Node.js</div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" data-width="10"></div>
+                </div>
+            </div>
+            <div class="skill-card" style="--skill-color:#ff6b35">
+                <span class="skill-icon">🔥</span>
+                <div class="skill-name">Git / GitHub</div>
+                <div class="skill-bar-bg">
+                    <div class="skill-bar-fill" data-width="82"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PROJETOS ── -->
+    <section id="projetos" class="section">
+        <div class="section-label">// projetos</div>
+        <h2 class="section-title">Trabalhos recentes</h2>
+        <div class="projects-grid">
+
+            <div class="project-card fade-up">
+                <div class="project-thumb"
+                    style="background:linear-gradient(135deg,rgba(255,107,53,0.2),rgba(167,139,250,0.2))">
+                    🛒
+                </div>
+                <div class="project-body">
+                    <div class="project-tags">
+                        <span class="project-tag" style="background:#ff6b3522;color:#e85a24">React</span>
+                        <span class="project-tag" style="background:#a78bfa22;color:#7c3aed">Node.js</span>
+                    </div>
+                    <div class="project-name">E-commerce App</div>
+                    <p class="project-desc">Plataforma completa com carrinho, pagamento integrado e painel
+                        administrativo.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Ainda em Desenvolvimento →</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-up" style="transition-delay:0.1s">
+                <div class="project-thumb"
+                    style="background:linear-gradient(135deg,rgba(34,211,238,0.2),rgba(34,197,94,0.2))">
+                    📊
+                </div>
+                <div class="project-body">
+                    <div class="project-tags">
+                        <span class="project-tag" style="background:#22d3ee22;color:#0e7490">Html</span>
+                        <span class="project-tag" style="background:#22c55e22;color:#15803d">JavaScript</span>
+                    </div>
+                    <div class="project-name">techconf</div>
+                    <p class="project-desc">Plataforma de eventos tecnológicos com inscrições e gerenciamento de
+                        palestrantes.</p>
+                    <div class="project-links">
+                        <a href="https://dev-caike.github.io/techconf/" class="project-link">Ver demo →</a>
+                        <a href="https://github.com/dev-caike/techconf" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-up" style="transition-delay:0.2s">
+                <div class="project-thumb"
+                    style="background:linear-gradient(135deg,rgba(247,223,30,0.2),rgba(255,107,53,0.2))">
+                    📱
+                </div>
+                <div class="project-body">
+                    <div class="project-tags">
+                        <span class="project-tag" style="background:#f7df1e22;color:#a16207">JavaScript</span>
+                        <span class="project-tag" style="background:#06b6d422;color:#0e7490">CSS</span>
+                    </div>
+                    <div class="project-name">App Portfólio</div>
+                    <p class="project-desc">Site responsivo.</p>
+                    <div class="project-links">
+                        <a href="https://dev-caike.github.io/portfolio/" class="project-link">Terminando</a>
+                        <a href="https://github.com/dev-caike/portfolio" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── EXPERIÊNCIA ── -->
+    <section id="experiencia" class="section">
+        <div class="section-label">// trajetória</div>
+        <h2 class="section-title">Experiência profissional</h2>
+        <div class="exp-timeline">
+
+            <div class="exp-item fade-up">
+                <div class="exp-dot" style="--dot-color:#ff6b35"></div>
+                <div class="exp-period">2026 — Presente</div>
+                <div class="exp-role">Corresponde-te Bancario</div>
+                <div class="exp-company">Empresa potencial soluções · Presencial</div>
+                <p class="exp-desc">Encaminhamento de propostas e atendimento ao cliente.</p>
+            </div>
+
+            <div class="exp-item fade-up">
+                <div class="exp-dot" style="--dot-color:#a78bfa"></div>
+                <div class="exp-period">2024 — 2025</div>
+                <div class="exp-role">Repositor de frios</div>
+                <div class="exp-company">Empresa: Tatico</div>
+                <p class="exp-desc">Reposição de produtos em estoque e atendimento ao cliente.</p>
+            </div>
+
+            <div class="exp-item fade-up">
+                <div class="exp-dot" style="--dot-color:#22d3ee"></div>
+                <div class="exp-period">2021 — 2022</div>
+                <div class="exp-role">Manuntenção de equipamentos e computadores - Freelancer</div>
+                <div class="exp-company">Autônomo</div>
+                <p class="exp-desc">Manutenção de computadores e atendimento ao cliente.</p>
+            </div>
+            <div class="exp-item fade-up">
+                <div class="exp-dot" style="--dot-color:#22d3ee"></div>
+                <div class="exp-period">2023</div>
+                <div class="exp-role">Auxiliar de cozinha - Freelancer</div>
+                <div class="exp-company">Autônomo</div>
+                <p class="exp-desc">Auxílio na preparação de refeições e manutenção da área de cozinha.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── CONTATO ── -->
+    <section id="contato" class="section">
+        <div class="section-label">// contato</div>
+        <h2 class="section-title">Vamos trabalhar juntos?</h2>
+        <div class="contact-grid">
+            <div>
+                <p class="contact-text">
+                    Estou sempre aberto a novas oportunidades e projetos interessantes.
+                    Seja para uma conversa rápida ou uma parceria longa, me manda uma mensagem!
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/caike-menezes" class="social-link" target="_blank">
+                        <span class="social-icon">💼</span>
+                        linkedin
+                    </a>
+                    <a href="https://github.com/Dev-Caike" class="social-link" target="_blank">
+                        <span class="social-icon">🐙</span>
+                        GitHub
+                    </a>
+                    <a href="mcaike.dev@gmail.com" class="social-link">
+                        <span class="social-icon">✉️</span>
+                       e-mail
+                    </a>
+                    <a href="https://wa.me/5561991505201" class="social-link" target="_blank">
+                        <span class="social-icon">💬</span>
+                        Watsapp
+                    </a>
+                </div>
+            </div>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <input type="text" name="nome" placeholder="Seu nome" required />
+                <input type="email" name="email" placeholder="Seu e-mail" required />
+                <textarea name="mensagem" placeholder="Sua mensagem..." required></textarea>
+                <button type="submit" class="btn-primary" style="width:100%;padding:1rem">
+                    Enviar mensagem →
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+       <span></span> por Caike Ribeiro · 2026
+    </footer>
+
+    <script>
+        // Animar barras de habilidade ao rolar
+        const fills = document.querySelectorAll('.skill-bar-fill');
+        const barObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.dataset.width + '%';
+                    barObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        fills.forEach(f => barObserver.observe(f));
+
+        // Animar elementos com fade-up
+        const fadeEls = document.querySelectorAll('.fade-up');
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        fadeEls.forEach(el => fadeObserver.observe(el));
+
+        // Formulário de contato
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.textContent = 'Mensagem enviada! ✓';
+            btn.style.background = '#22c55e';
+            setTimeout(() => {
+                btn.textContent = 'Enviar mensagem →';
+                btn.style.background = '';
+                e.target.reset();
+            }, 3000);
+        }
+    </script>
+
+</body>
+
+</html>
