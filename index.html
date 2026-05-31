@@ -1040,17 +1040,43 @@
         fadeEls.forEach(el => fadeObserver.observe(el));
 
         // Formulário de contato
-        function handleSubmit(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('button');
-            btn.textContent = 'Mensagem enviada! ✓';
-            btn.style.background = '#22c55e';
-            setTimeout(() => {
-                btn.textContent = 'Enviar mensagem →';
-                btn.style.background = '';
-                e.target.reset();
-            }, 3000);
-        }
+       // Formulário de contato
+const WEBHOOK_URL = 'https://customs-until-divisible.ngrok-free.app/webhook/1c343055-8344-495e-932d-65df32615a40';
+
+async function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    const form = e.target;
+
+    const dados = {
+        nome: form.nome.value,
+        email: form.email.value,
+        mensagem: form.mensagem.value
+    };
+
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+
+    try {
+        await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dados)
+        });
+        btn.textContent = 'Mensagem enviada! ✓';
+        btn.style.background = '#22c55e';
+        form.reset();
+    } catch (err) {
+        btn.textContent = 'Erro ao enviar. Tente novamente.';
+        btn.style.background = '#ef4444';
+    } finally {
+        btn.disabled = false;
+        setTimeout(() => {
+            btn.textContent = 'Enviar mensagem →';
+            btn.style.background = '';
+        }, 3000);
+    }
+}
     </script>
 
 </body>
