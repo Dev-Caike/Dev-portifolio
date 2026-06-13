@@ -18,3 +18,7 @@ Lista dos projetos disponíveis no portfolio.
 2. Commit suas mudanças: `git commit -m 'feat: descricao'`
 3. Envie para o GitHub: `git push origin minha-feature`
 4. Abra um Pull Request para a branch develop.
+
+
+## Status do Projeto
+Em desenvolvimento ativo.
