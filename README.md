@@ -1,15 +1,7 @@
-👨 💻 PortfolioHUB
-Repositório criado para organizar meus projetos acadêmicos e pessoais.
-
-📁 Estrutura
+PortfolioHUB - Dev Caike Portfolio centralizado de projetos de desenvolvimento. ## 
 
 
-academico/ — Projetos da faculdade
-pessoal/ — Projetos pessoais
-docs/ — Documentação geral
+Acesse o site https://dev-caike.github.io/Dev-portifolio/ ## Tecnologias - React 
 
 
-
-🛠️ Tecnologias
-Git e GitHub
-HTML5 e CSS3
+JavaScript - GitHub Pages ## Projetos Lista dos projetos disponiveis no portfolio
